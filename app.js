@@ -13,7 +13,7 @@ app.post("/login", (req,res) => {
     }
 })
 app.get("/login", (req,res) => {
-    const {email, password} = req.body
+    const {email, password} = req.params
     if(email && password) {
         res.send(req.body)
     }else{
