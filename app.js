@@ -71,7 +71,7 @@ app.get("/addLevel",(req,res) => {
 app.get("/getLevel",(req,res) => {
     const {id, level, mark} = req.query
     if(id && level && mark){
-        res.send(req.query)
+        res.send(req.body)
     }else{
         res.send(false)
     }
