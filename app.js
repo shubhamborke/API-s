@@ -12,6 +12,14 @@ app.post("/login", (req,res) => {
         res.send(false)
     }
 })
+app.get("/login", (req,res) => {
+    const {email, password} = req.body
+    if(email && password) {
+        res.send(req.body)
+    }else{
+        res.send(false)
+    }
+})
 app.post("/forgotPassword", (req,res) => {
     const {email} = req.body
     if(email){
