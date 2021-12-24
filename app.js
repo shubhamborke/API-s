@@ -56,7 +56,7 @@ app.patch("/updateLevel", (req, res) => {
 app.delete("/deleteLevel", (req, res) => {
   const { id } = req.body;
   if (id) {
-    res.send(id + "Deleted");
+    res.send(id + " Deleted");
   } else {
     res.send(false);
   }
