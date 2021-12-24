@@ -32,7 +32,7 @@ app.post("/verifyOtp", (req, res) => {
 app.post("/addLevel", (req, res) => {
   const { level, mark } = req.body;
   if (level && mark) {
-    res.send(req.body + "Level added");
+    res.send("Level added for " + JSON.stringify(req.body));
   } else {
     res.send("Error occured");
   }
