@@ -32,7 +32,7 @@ app.post("/verifyOtp", (req, res) => {
 app.post("/addLevel", (req, res) => {
   const { level, mark } = req.body;
   if (level && mark) {
-    res.send("Level added for " + JSON.stringify(req.body));
+    res.send("Level added for " + level +" "+mark);
   } else {
     res.send("Error occured");
   }
@@ -40,7 +40,7 @@ app.post("/addLevel", (req, res) => {
 app.get("/getLevel", (req, res) => {
   const { id, level, mark } = req.body;
   if (id && level && mark) {
-    res.send(req.body);
+    res.send("Level found for " + level);
   } else {
     res.send("Not found");
   }
@@ -48,7 +48,7 @@ app.get("/getLevel", (req, res) => {
 app.patch("/updateLevel", (req, res) => {
   const { level, mark } = req.body;
   if (level && mark) {
-    res.send("Level updated with " + req.body);
+    res.send("Level updated with " + level + " " + mark);
   } else {
     res.send("Not found");
   }
@@ -128,7 +128,7 @@ app.delete("/deleteBook", (req, res) => {
 app.post("/addHeading", (req, res) => {
   const { bookName, level, QuestionType } = req.body;
   if (bookName && level && QuestionType) {
-    res.send("Heading added as " + req.body);
+    res.send("Heading added as " + bookName);
   } else {
     res.send("Error occured");
   }
@@ -144,7 +144,7 @@ app.get("/getHeading", (req, res) => {
 app.patch("/updateHeading", (req, res) => {
   const { bookName, level, QuestionType } = req.body;
   if (bookName && level && QuestionType) {
-    res.send("Heading updated for " + req.body);
+    res.send("Heading updated for " + bookName);
   } else {
     res.send("Not found");
   }
@@ -270,10 +270,10 @@ app.post("/addGeneratePaper", (req, res) => {
     res.send("Error occured");
   }
 });
-app.get("/getQuestion", (req, res) => {
+app.get("/getQuestionEntry", (req, res) => {
   const { id, paperName, paperDate, paperDuration, paperMark } = req.body;
   if (id && paperName && paperDate && paperDuration && paperMark) {
-    res.send(req.body);
+    res.send("Question found for " + paperName);
   } else {
     res.send("Not found");
   }
@@ -281,15 +281,15 @@ app.get("/getQuestion", (req, res) => {
 app.patch("/updateQuestionEntry", (req, res) => {
   const { paperName, paperDate, paperDuration, paperMark } = req.body;
   if (paperName && paperDate && paperDuration && paperMark) {
-    res.send(req.body);
+    res.send("Entry updated for " + paperName);
   } else {
     res.send("Not found");
   }
 });
-app.delete("/deleteQuestionWntry", (req, res) => {
+app.delete("/deleteQuestionEntry", (req, res) => {
   const { id } = req.body;
   if (id) {
-    res.send(id);
+    res.send(id + "deleted");
   } else {
     res.send("Not found");
   }
