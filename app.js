@@ -7,34 +7,34 @@ const port = process.env.PORT || 3000;
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
   if (email && password) {
-    res.send(req.body);
+    res.send("Login Successfull with " + req.body);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.post("/forgotPassword", (req, res) => {
   const { email } = req.body;
   if (email) {
-    res.send(email);
+    res.send("Request send at " + email);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 
 app.post("/verifyOtp", (req, res) => {
   const { email, otp, newPassword } = req.body;
   if (email && otp && newPassword) {
-    res.send(req.body);
+    res.send("Otp verified with " + otp);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.post("/addLevel", (req, res) => {
   const { level, mark } = req.body;
   if (level && mark) {
-    res.send(req.body);
+    res.send(req.body + "Level added");
   } else {
-    res.send(false);
+    res.send("Error occured");
   }
 });
 app.get("/getLevel", (req, res) => {
@@ -42,15 +42,15 @@ app.get("/getLevel", (req, res) => {
   if (id && level && mark) {
     res.send(req.body);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.patch("/updateLevel", (req, res) => {
   const { level, mark } = req.body;
   if (level && mark) {
-    res.send(req.body);
+    res.send("Level updated with " + req.body);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.delete("/deleteLevel", (req, res) => {
@@ -58,146 +58,148 @@ app.delete("/deleteLevel", (req, res) => {
   if (id) {
     res.send(id + " Deleted");
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.post("/addQuestion", (req, res) => {
   const { QuestionType } = req.body;
   if (QuestionType) {
-    res.send(QuestionType);
+    res.send("Question added as " + QuestionType);
   } else {
-    res.send(false);
+    res.send("Error occured");
   }
 });
 app.get("/getQuestion", (req, res) => {
   const { id, QuestionType } = req.body;
   if (id && QuestionType) {
-    res.send(req.body);
+    res.send("Question fouund for " + QuestionType);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.patch("/updateQuestion", (req, res) => {
   const { QuestionType } = req.body;
   if (QuestionType) {
-    res.send(QuestionType);
+    res.send("Question updated for " + QuestionType);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.delete("/deleteQuestion", (req, res) => {
   const { id } = req.body;
   if (id) {
-    res.send(id);
+    res.send(id + "Deleted");
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.post("/addBook", (req, res) => {
   const { bookName } = req.body;
   if (bookName) {
-    res.send(bookName);
+    res.send("Book added as " + bookName);
   } else {
-    res.send(false);
+    res.send("Error occured");
   }
 });
 app.get("/getBook", (req, res) => {
   const { id, bookName } = req.body;
   if (id && bookName) {
-    res.send(req.body);
+    res.send("Book found " + bookName);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.patch("/updateBook", (req, res) => {
   const { bookName } = req.body;
   if (bookName) {
-    res.send(bookName);
+    res.send(bookName + "Updated");
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.delete("/deleteBook", (req, res) => {
   const { id } = req.body;
   if (id) {
-    res.send(id);
+    res.send(id + "Deleted");
+  }else{
+      res.send(id + "Not found")
   }
 });
 app.post("/addHeading", (req, res) => {
   const { bookName, level, QuestionType } = req.body;
   if (bookName && level && QuestionType) {
-    res.send(req.body);
+    res.send("Heading added as " + req.body);
   } else {
-    res.send(false);
+    res.send("Error occured");
   }
 });
 app.get("/getHeading", (req, res) => {
   const { id, bookName, QuestionType } = req.body;
   if (id && bookName && QuestionType) {
-    res.send(req.body);
+    res.send("Heading found for " + bookName + " " + QuestionType);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.patch("/updateHeading", (req, res) => {
   const { bookName, level, QuestionType } = req.body;
   if (bookName && level && QuestionType) {
-    res.send(req.body);
+    res.send("Heading updated for " + req.body);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.delete("/deleteHeading", (req, res) => {
   const { bookName, level, QuestionType } = req.body;
   if (bookName && level && QuestionType) {
-    res.send(req.body);
+    res.send(bookName + " " + level + " deleted");
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.post("/addChapter", (req, res) => {
   const { chapterName } = req.body;
   if (chapterName) {
-    res.send(chapterName);
+    res.send("Chapter added as " + chapterName);
   } else {
-    res.send(false);
+    res.send("Error occured");
   }
 });
 app.get("/getChapter", (req, res) => {
   const { id, chapterName } = req.body;
   if (id && chapterName) {
-    res.send(req.body);
+    res.send("Chapter found for " + chapterName);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.patch("/updateChapter", (req, res) => {
   const { chapterName } = req.body;
   if (chapterName) {
-    res.send(chapterName);
+    res.send("Chapter updated for " + chapterName);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.delete("/deleteChapter", (req, res) => {
   const { id } = req.body;
   if (id) {
-    res.send(id);
+    res.send(id + " deleted");
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.post("/addQuestionEntry", (req, res) => {
   const { chapter, level, QuestionType, bookName, question, solution } =
     req.body;
   if (chapter && level && QuestionType && bookName && question && solution) {
-    res.send(req.body);
+    res.send("Entry added successfully");
   } else {
-    res.send(false);
+    res.send("Error occured");
   }
 });
 app.get("/getQuestionEntry", (req, res) => {
-  const { id, chpter, level, QuestionType, bookName, question, solution } =
+  const { id, chapter, level, QuestionType, bookName, question, solution } =
     req.body;
   if (
     id &&
@@ -208,26 +210,26 @@ app.get("/getQuestionEntry", (req, res) => {
     question &&
     solution
   ) {
-    res.send(req.body);
+    res.send("Entry found for BookName as " + bookName);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.patch("/updateQuestionEntry", (req, res) => {
   const { chapter, level, QuestionType, bookName, question, solution } =
     req.body;
   if (chapter && level && QuestionType && bookName && question && solution) {
-    res.send(req.body);
+    res.send("Entry updated for " + bookName);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.delete("/deleteQuestionEntry", (req, res) => {
   const { id } = req.body;
   if (id) {
-    res.send(id);
+    res.send(id + "deleted");
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.post("/addGeneratePaper", (req, res) => {
@@ -263,9 +265,9 @@ app.post("/addGeneratePaper", (req, res) => {
     restartQue &&
     randomSize
   ) {
-    res.body(req.body);
+    res.body("Paper added as " + paperName);
   } else {
-    res.send(false);
+    res.send("Error occured");
   }
 });
 app.get("/getQuestion", (req, res) => {
@@ -273,7 +275,7 @@ app.get("/getQuestion", (req, res) => {
   if (id && paperName && paperDate && paperDuration && paperMark) {
     res.send(req.body);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.patch("/updateQuestionEntry", (req, res) => {
@@ -281,7 +283,7 @@ app.patch("/updateQuestionEntry", (req, res) => {
   if (paperName && paperDate && paperDuration && paperMark) {
     res.send(req.body);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 app.delete("/deleteQuestionWntry", (req, res) => {
@@ -289,7 +291,7 @@ app.delete("/deleteQuestionWntry", (req, res) => {
   if (id) {
     res.send(id);
   } else {
-    res.send(false);
+    res.send("Not found");
   }
 });
 
