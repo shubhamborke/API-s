@@ -232,7 +232,7 @@ app.delete("/deleteQuestionEntry", (req, res) => {
     res.send("Not found");
   }
 });
-app.post("/addGeneratePaper", (req, res) => {
+app.post("/addPaperQuestionEntry", (req, res) => {
   const {
     paperName,
     paperDate,
@@ -270,7 +270,7 @@ app.post("/addGeneratePaper", (req, res) => {
     res.send("Error occured");
   }
 });
-app.get("/getQuestionEntry", (req, res) => {
+app.get("/getPaperQuestionEntry", (req, res) => {
   const { id, paperName, paperDate, paperDuration, paperMark } = req.body;
   if (id && paperName && paperDate && paperDuration && paperMark) {
     res.send("Question found for " + paperName);
@@ -286,7 +286,7 @@ app.patch("/updatePaperQuestionEntry", (req, res) => {
     res.send("Not found");
   }
 });
-app.delete("/deleteQuestionEntry", (req, res) => {
+app.delete("/deletePaperQuestionEntry", (req, res) => {
   const { id } = req.body;
   if (id) {
     res.send(id + " deleted");
