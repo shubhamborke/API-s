@@ -56,7 +56,7 @@ app.patch("/updateLevel", (req, res) => {
 app.delete("/deleteLevel", (req, res) => {
   const { id } = req.body;
   if (id) {
-    res.send(id + " Deleted");
+    res.send(id + " deleted");
   } else {
     res.send("Not found");
   }
@@ -72,7 +72,7 @@ app.post("/addQuestion", (req, res) => {
 app.get("/getQuestion", (req, res) => {
   const { id, QuestionType } = req.body;
   if (id && QuestionType) {
-    res.send("Question fouund for " + QuestionType);
+    res.send("Question found for " + QuestionType);
   } else {
     res.send("Not found");
   }
@@ -88,7 +88,7 @@ app.patch("/updateQuestion", (req, res) => {
 app.delete("/deleteQuestion", (req, res) => {
   const { id } = req.body;
   if (id) {
-    res.send(id + "Deleted");
+    res.send(id + " deleted");
   } else {
     res.send("Not found");
   }
@@ -104,7 +104,7 @@ app.post("/addBook", (req, res) => {
 app.get("/getBook", (req, res) => {
   const { id, bookName } = req.body;
   if (id && bookName) {
-    res.send("Book found " + bookName);
+    res.send("Book found for " + bookName);
   } else {
     res.send("Not found");
   }
@@ -112,7 +112,7 @@ app.get("/getBook", (req, res) => {
 app.patch("/updateBook", (req, res) => {
   const { bookName } = req.body;
   if (bookName) {
-    res.send(bookName + "Updated");
+    res.send(bookName + " Updated");
   } else {
     res.send("Not found");
   }
@@ -120,7 +120,7 @@ app.patch("/updateBook", (req, res) => {
 app.delete("/deleteBook", (req, res) => {
   const { id } = req.body;
   if (id) {
-    res.send(id + "Deleted");
+    res.send(id + " deleted");
   }else{
       res.send(id + "Not found")
   }
@@ -227,7 +227,7 @@ app.patch("/updateQuestionEntry", (req, res) => {
 app.delete("/deleteQuestionEntry", (req, res) => {
   const { id } = req.body;
   if (id) {
-    res.send(id + "deleted");
+    res.send(id + " deleted");
   } else {
     res.send("Not found");
   }
@@ -278,7 +278,7 @@ app.get("/getQuestionEntry", (req, res) => {
     res.send("Not found");
   }
 });
-app.patch("/updateQuestionEntry", (req, res) => {
+app.patch("/updatePaperQuestionEntry", (req, res) => {
   const { paperName, paperDate, paperDuration, paperMark } = req.body;
   if (paperName && paperDate && paperDuration && paperMark) {
     res.send("Entry updated for " + paperName);
@@ -289,7 +289,7 @@ app.patch("/updateQuestionEntry", (req, res) => {
 app.delete("/deleteQuestionEntry", (req, res) => {
   const { id } = req.body;
   if (id) {
-    res.send(id + "deleted");
+    res.send(id + " deleted");
   } else {
     res.send("Not found");
   }
