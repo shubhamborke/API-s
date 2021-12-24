@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
   if (email && password) {
-    res.send("Login Successfull with " + req.body);
+    res.send("Login Successfull with " + email +" " + password);
   } else {
     res.send("Not found");
   }
