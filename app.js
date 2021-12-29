@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
   if (email && password) {
-    res.send("Login Successfull with " + email +" " + password);
+    res.send("Login Successfull with " + email + " " + password);
   } else {
     res.send("Not found");
   }
@@ -29,10 +29,176 @@ app.post("/verifyOtp", (req, res) => {
     res.send("Not found");
   }
 });
+
+app.post("/addMedium", (req, res) => {
+  const { medium } = req.body;
+  if (medium) {
+    res.send("medium added for " + medium);
+  } else {
+    res.send("Error occured");
+  }
+});
+app.get("/getMedium", (req, res) => {
+  const { id, medium } = req.body;
+  if (id && medium) {
+    res.send("medium found for " + medium);
+  } else {
+    res.send("Not found");
+  }
+});
+app.patch("/updateMedium", (req, res) => {
+  const { id, medium } = req.body;
+  if (id && medium) {
+    res.send("medium updated with " + medium);
+  } else {
+    res.send("Not found");
+  }
+});
+app.delete("/deleteMedium", (req, res) => {
+  const { id } = req.body;
+  if (id) {
+    res.send(id + " deleted");
+  } else {
+    res.send("Not found");
+  }
+});
+
+app.post("/addBoard", (req, res) => {
+  const { board } = req.body;
+  if (board) {
+    res.send("board added for " + board);
+  } else {
+    res.send("Error occured");
+  }
+});
+app.get("/getBoard", (req, res) => {
+  const { id, board } = req.body;
+  if (id && board) {
+    res.send("board found for " + level);
+  } else {
+    res.send("Not found");
+  }
+});
+app.patch("/updateBoard", (req, res) => {
+  const { id, board } = req.body;
+  if (level && mark) {
+    res.send("board updated with " + board);
+  } else {
+    res.send("Not found");
+  }
+});
+app.delete("/deleteBoard", (req, res) => {
+  const { id } = req.body;
+  if (id) {
+    res.send(id + " deleted");
+  } else {
+    res.send("Not found");
+  }
+});
+
+app.post("/addGrade", (req, res) => {
+  const { grade } = req.body;
+  if (grade) {
+    res.send("grade added for " + grade);
+  } else {
+    res.send("Error occured");
+  }
+});
+app.get("/getGrade", (req, res) => {
+  const { id, grade } = req.body;
+  if (id && grade) {
+    res.send("grade found for " + grade);
+  } else {
+    res.send("Not found");
+  }
+});
+app.patch("/updateGrade", (req, res) => {
+  const { id, grade } = req.body;
+  if (id && grade) {
+    res.send("grade updated with " + grade);
+  } else {
+    res.send("Not found");
+  }
+});
+app.delete("/deleteGrade", (req, res) => {
+  const { id } = req.body;
+  if (id) {
+    res.send(id + " deleted");
+  } else {
+    res.send("Not found");
+  }
+});
+
+app.post("/addtopic", (req, res) => {
+  const { topic } = req.body;
+  if (topic) {
+    res.send("topic added for " + topic);
+  } else {
+    res.send("Error occured");
+  }
+});
+app.get("/getTopic", (req, res) => {
+  const { id, topic } = req.body;
+  if (id && topic) {
+    res.send("topic found for " + topic);
+  } else {
+    res.send("Not found");
+  }
+});
+app.patch("/updateTopic", (req, res) => {
+  const { id, topic } = req.body;
+  if (id && topic) {
+    res.send("topic updated with " + topic);
+  } else {
+    res.send("Not found");
+  }
+});
+app.delete("/deleteTopic", (req, res) => {
+  const { id } = req.body;
+  if (id) {
+    res.send(id + " deleted");
+  } else {
+    res.send("Not found");
+  }
+});
+
+app.post("/addCourses", (req, res) => {
+  const { course } = req.body;
+  if (course) {
+    res.send("course added for " + course);
+  } else {
+    res.send("Error occured");
+  }
+});
+app.get("/getCourses", (req, res) => {
+  const { id, course } = req.body;
+  if (id && course) {
+    res.send("course found for " + course);
+  } else {
+    res.send("Not found");
+  }
+});
+app.patch("/upateCourses", (req, res) => {
+  const { course } = req.body;
+  if (id && course) {
+    res.send("course updated with " + course);
+  } else {
+    res.send("Not found");
+  }
+});
+app.delete("/deleteCourses", (req, res) => {
+  const { id } = req.body;
+  if (id) {
+    res.send(id + " deleted");
+  } else {
+    res.send("Not found");
+  }
+});
+
 app.post("/addLevel", (req, res) => {
   const { level, mark } = req.body;
   if (level && mark) {
-    res.send("Level added for " + level +" "+mark);
+    res.send("Level added for " + level + " " + mark);
   } else {
     res.send("Error occured");
   }
@@ -61,6 +227,7 @@ app.delete("/deleteLevel", (req, res) => {
     res.send("Not found");
   }
 });
+
 app.post("/addQuestion", (req, res) => {
   const { QuestionType } = req.body;
   if (QuestionType) {
@@ -93,6 +260,73 @@ app.delete("/deleteQuestion", (req, res) => {
     res.send("Not found");
   }
 });
+
+app.post("/addSubject", (req, res) => {
+  const { subject } = req.body;
+  if (subject) {
+    res.send("subject added for " + subject);
+  } else {
+    res.send("Error occured");
+  }
+});
+app.get("/getSubject", (req, res) => {
+  const { id, subject } = req.body;
+  if (id && subject) {
+    res.send("subject found for " + subject);
+  } else {
+    res.send("Not found");
+  }
+});
+app.patch("/updateSubject", (req, res) => {
+  const { id, subject } = req.body;
+  if (id && subject) {
+    res.send("subject updated with " + subject);
+  } else {
+    res.send("Not found");
+  }
+});
+app.delete("/deleteSubject", (req, res) => {
+  const { id } = req.body;
+  if (id) {
+    res.send(id + " deleted");
+  } else {
+    res.send("Not found");
+  }
+});
+
+app.post("/addHeading", (req, res) => {
+  const { heading } = req.body;
+  if (heading) {
+    res.send("Heading added as " + heading);
+  } else {
+    res.send("Error occured");
+  }
+});
+app.get("/getHeading", (req, res) => {
+  const { id, heading } = req.body;
+  if (id && heading) {
+    res.send("Heading found for " + heading);
+  } else {
+    res.send("Not found");
+  }
+});
+app.patch("/updateHeading", (req, res) => {
+  const { id, heading } = req.body;
+  if (id && heading) {
+    res.send("Heading updated for " + heading);
+  } else {
+    res.send("Not found");
+  }
+});
+app.delete("/deleteHeading", (req, res) => {
+  const { id } = req.body;
+  if (id) {
+    res.send(id + " deleted");
+  } else {
+    res.send("Not found");
+  }
+});
+
 app.post("/addBook", (req, res) => {
   const { bookName } = req.body;
   if (bookName) {
@@ -121,42 +355,11 @@ app.delete("/deleteBook", (req, res) => {
   const { id } = req.body;
   if (id) {
     res.send(id + " deleted");
-  }else{
-      res.send(id + "Not found")
-  }
-});
-app.post("/addHeading", (req, res) => {
-  const { bookName, level, QuestionType } = req.body;
-  if (bookName && level && QuestionType) {
-    res.send("Heading added as " + bookName);
   } else {
-    res.send("Error occured");
+    res.send(id + "Not found");
   }
 });
-app.get("/getHeading", (req, res) => {
-  const { id, bookName, QuestionType } = req.body;
-  if (id && bookName && QuestionType) {
-    res.send("Heading found for " + bookName + " " + QuestionType);
-  } else {
-    res.send("Not found");
-  }
-});
-app.patch("/updateHeading", (req, res) => {
-  const { bookName, level, QuestionType } = req.body;
-  if (bookName && level && QuestionType) {
-    res.send("Heading updated for " + bookName);
-  } else {
-    res.send("Not found");
-  }
-});
-app.delete("/deleteHeading", (req, res) => {
-  const { bookName, level, QuestionType } = req.body;
-  if (bookName && level && QuestionType) {
-    res.send(bookName + " " + level + " deleted");
-  } else {
-    res.send("Not found");
-  }
-});
+
 app.post("/addChapter", (req, res) => {
   const { chapterName } = req.body;
   if (chapterName) {
