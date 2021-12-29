@@ -81,7 +81,7 @@ app.get("/getBoard", (req, res) => {
 });
 app.patch("/updateBoard", (req, res) => {
   const { id, board } = req.body;
-  if (level && mark) {
+  if (id && board) {
     res.send("board updated with " + board);
   } else {
     res.send("Not found");
