@@ -74,7 +74,7 @@ app.post("/addBoard", (req, res) => {
 app.get("/getBoard", (req, res) => {
   const { id, board } = req.body;
   if (id && board) {
-    res.send("board found for " + level);
+    res.send("board found for " + board);
   } else {
     res.send("Not found");
   }
