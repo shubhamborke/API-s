@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const cors = require("cors");
+const req = require("express/lib/request");
 app.use(bodyParser.json());
 app.use(cors());
 const port = process.env.PORT || 3000;
@@ -499,5 +500,8 @@ app.delete("/deletePaperQuestionEntry", (req, res) => {
     res.send("Not found");
   }
 });
+app.get("/test",(req, res) => {
+  res.send(req.query);
+})
 
 app.listen(port, () => console.log("listing on port " + port));
