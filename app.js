@@ -129,7 +129,7 @@ app.delete("/deleteGrade", (req, res) => {
   }
 });
 
-app.post("/addtopic", (req, res) => {
+app.post("/addTopic", (req, res) => {
   const { topic } = req.body;
   if (topic) {
     res.send("topic added for " + topic);
@@ -180,7 +180,7 @@ app.get("/getCourses", (req, res) => {
 });
 app.patch("/upateCourses", (req, res) => {
   const { course } = req.body;
-  if (id && course) {
+  if (course) {
     res.send("course updated with " + course);
   } else {
     res.send("Not found");
